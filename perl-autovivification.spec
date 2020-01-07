@@ -4,13 +4,13 @@
 #
 Name     : perl-autovivification
 Version  : 0.18
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Summary  : 'Lexically disable autovivification.'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-autovivification-lib = %{version}-%{release}
+Requires: perl-autovivification-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -22,29 +22,31 @@ Version 0.18
 %package dev
 Summary: dev components for the perl-autovivification package.
 Group: Development
-Requires: perl-autovivification-lib = %{version}-%{release}
 Provides: perl-autovivification-devel = %{version}-%{release}
+Requires: perl-autovivification = %{version}-%{release}
 
 %description dev
 dev components for the perl-autovivification package.
 
 
-%package lib
-Summary: lib components for the perl-autovivification package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-autovivification package.
+Group: Default
+Requires: perl-autovivification = %{version}-%{release}
 
-%description lib
-lib components for the perl-autovivification package.
+%description perl
+perl components for the perl-autovivification package.
 
 
 %prep
 %setup -q -n autovivification-0.18
+cd %{_builddir}/autovivification-0.18
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -54,7 +56,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -74,12 +76,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/autovivification.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/autovivification.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/autovivification/autovivification.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/autovivification/autovivification.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/autovivification.pm
