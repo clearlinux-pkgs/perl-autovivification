@@ -4,7 +4,7 @@
 #
 Name     : perl-autovivification
 Version  : 0.18
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Summary  : 'Lexically disable autovivification.'
@@ -83,5 +83,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/autovivification/autovivification.so
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/autovivification.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/autovivification/autovivification.so
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/autovivification.pm
