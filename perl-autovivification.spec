@@ -4,7 +4,7 @@
 #
 Name     : perl-autovivification
 Version  : 0.18
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 Summary  : 'Lexically disable autovivification.'
